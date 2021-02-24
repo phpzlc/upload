@@ -28,7 +28,7 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-namespace App\Service\Upload\Storage;
+namespace PHPZlc\Upload\Storage;
 
 /**
  * FileSystem Storage
@@ -39,7 +39,7 @@ namespace App\Service\Upload\Storage;
  * @since   1.0.0
  * @package Upload
  */
-class FileSystem extends \App\Service\Upload\Storage\Base
+class FileSystem extends \PHPZlc\Upload\Storage\Base
 {
     /**
      * Upload directory
@@ -74,12 +74,12 @@ class FileSystem extends \App\Service\Upload\Storage\Base
 
     /**
      * Upload
-     * @param  \App\Service\Upload\File $file The file object to upload
+     * @param  \PHPZlc\Upload\File $file The file object to upload
      * @param  string $newName Give the file it a new name
      * @return bool
      * @throws \RuntimeException   If overwrite is false and file already exists
      */
-    public function upload(\App\Service\Upload\File $file, $newName = null)
+    public function upload(\PHPZlc\Upload\File $file, $newName = null)
     {
         if (is_string($newName)) {
             $fileName = strpos($newName, '.') ? $newName : $newName.'.'.$file->getExtension();
@@ -91,7 +91,7 @@ class FileSystem extends \App\Service\Upload\Storage\Base
         $newFile = $this->directory . $fileName;
         if ($this->overwrite === false && file_exists($newFile)) {
             $file->addError('File already exists');
-            throw new \App\Service\Upload\Exception\UploadException('File already exists');
+            throw new \PHPZlc\Upload\Exception\UploadException('File already exists');
         }
 
         return $this->moveUploadedFile($file->getPathname(), $newFile);

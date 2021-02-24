@@ -28,7 +28,7 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-namespace App\Service\Upload\Storage;
+namespace PHPZlc\Upload\Storage;
 
 /**
  * Upload Storage Base
@@ -41,5 +41,5 @@ namespace App\Service\Upload\Storage;
  */
 abstract class Base
 {
-    abstract public function upload(\App\Service\Upload\File $file, $newName = null);
+    abstract public function upload(\PHPZlc\Upload\File $file, $newName = null);
 }

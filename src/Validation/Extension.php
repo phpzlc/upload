@@ -28,7 +28,7 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-namespace App\Service\Upload\Validation;
+namespace PHPZlc\Upload\Validation;
 
 /**
  * Validate File Extension
@@ -41,7 +41,7 @@ namespace App\Service\Upload\Validation;
  * @author  Alex Kucherenko <kucherenko.email@gmail.com>
  * @package Upload
  */
-class Extension extends \App\Service\Upload\Validation\Base
+class Extension extends \PHPZlc\Upload\Validation\Base
 {
     /**
      * Array of cceptable file extensions without leading dots
@@ -59,8 +59,8 @@ class Extension extends \App\Service\Upload\Validation\Base
      * Constructor
      *
      * @param string|array $allowedExtensions Allowed file extensions
-     * @example new \App\Service\Upload\Validation\Extension(array('png','jpg','gif'))
-     * @example new \App\Service\Upload\Validation\Extension('png')
+     * @example new \PHPZlc\Upload\Validation\Extension(array('png','jpg','gif'))
+     * @example new \PHPZlc\Upload\Validation\Extension('png')
      */
     public function __construct($allowedExtensions)
     {
@@ -77,10 +77,10 @@ class Extension extends \App\Service\Upload\Validation\Base
 
     /**
      * Validate
-     * @param  \App\Service\Upload\File $file
+     * @param  \PHPZlc\Upload\File $file
      * @return bool
      */
-    public function validate(\App\Service\Upload\File $file)
+    public function validate(\PHPZlc\Upload\File $file)
     {
         $fileExtension = strtolower($file->getExtension());
         $isValid = true;

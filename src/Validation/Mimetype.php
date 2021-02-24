@@ -28,7 +28,7 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-namespace App\Service\Upload\Validation;
+namespace PHPZlc\Upload\Validation;
 
 /**
  * Validate Upload Media Type
@@ -39,7 +39,7 @@ namespace App\Service\Upload\Validation;
  * @since   1.0.0
  * @package Upload
  */
-class Mimetype extends \App\Service\Upload\Validation\Base
+class Mimetype extends \PHPZlc\Upload\Validation\Base
 {
     /**
      * Valid media types
@@ -67,10 +67,10 @@ class Mimetype extends \App\Service\Upload\Validation\Base
 
     /**
      * Validate
-     * @param  \App\Service\Upload\File $file
+     * @param  \PHPZlc\Upload\File $file
      * @return bool
      */
-    public function validate(\App\Service\Upload\File $file)
+    public function validate(\PHPZlc\Upload\File $file)
     {
         return in_array($file->getMimetype(), $this->mimetypes);
     }

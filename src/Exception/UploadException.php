@@ -1,5 +1,5 @@
 <?php
-namespace App\Service\Upload\Exception;
+namespace PHPZlc\Upload\Exception;
 
 class UploadException extends \RuntimeException
 {

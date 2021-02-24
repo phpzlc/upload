@@ -28,7 +28,7 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-namespace App\Service\Upload\Validation;
+namespace PHPZlc\Upload\Validation;
 
 /**
  * Validate Upload File Size
@@ -41,7 +41,7 @@ namespace App\Service\Upload\Validation;
  * @since   1.0.0
  * @package Upload
  */
-class Size extends \App\Service\Upload\Validation\Base
+class Size extends \PHPZlc\Upload\Validation\Base
 {
     /**
      * Minimum acceptable file size (bytes)
@@ -69,22 +69,22 @@ class Size extends \App\Service\Upload\Validation\Base
     public function __construct($maxSize, $minSize = 0)
     {
         if (is_string($maxSize)) {
-            $maxSize = \App\Service\Upload\File::humanReadableToBytes($maxSize);
+            $maxSize = \PHPZlc\Upload\File::humanReadableToBytes($maxSize);
         }
         $this->maxSize = $maxSize;
 
         if (is_string($minSize)) {
-            $minSize = \App\Service\Upload\File::humanReadableToBytes($minSize);
+            $minSize = \PHPZlc\Upload\File::humanReadableToBytes($minSize);
         }
         $this->minSize = $minSize;
     }
 
     /**
      * Validate
-     * @param  \App\Service\Upload\File $file
+     * @param  \PHPZlc\Upload\File $file
      * @return bool
      */
-    public function validate(\App\Service\Upload\File $file)
+    public function validate(\PHPZlc\Upload\File $file)
     {
         $fileSize = $file->getSize();
         $isValid = true;

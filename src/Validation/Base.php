@@ -28,7 +28,7 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-namespace App\Service\Upload\Validation;
+namespace PHPZlc\Upload\Validation;
 
 /**
  * Upload Validation Base
@@ -68,8 +68,8 @@ abstract class Base
 
     /**
      * Validate file
-     * @param  \App\Service\Upload\File $file
+     * @param  \PHPZlc\Upload\File $file
      * @return bool         True if file is valid, false if file is not valid
      */
-    abstract public function validate(\App\Service\Upload\File $file);
+    abstract public function validate(\PHPZlc\Upload\File $file);
 }

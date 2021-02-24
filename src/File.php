@@ -28,7 +28,7 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-namespace App\Service\Upload;
+namespace PHPZlc\Upload;
 
 /**
  * File
@@ -79,13 +79,13 @@ class File extends \SplFileInfo
 
     /**
      * Storage delegate
-     * @var \App\Service\Upload\Storage\Base
+     * @var \PHPZlc\Upload\Storage\Base
      */
     protected $storage;
 
     /**
      * Validations
-     * @var array[\App\Service\Upload\Validation\Base]
+     * @var array[\PHPZlc\Upload\Validation\Base]
      */
     protected $validations;
 
@@ -129,11 +129,11 @@ class File extends \SplFileInfo
     /**
      * Constructor
      * @param  string                            $key            The file's key in $_FILES superglobal
-     * @param  \App\Service\Upload\Storage\Base              $storage        The method with which to store file
-     * @throws \App\Service\Upload\Exception\UploadException If file uploads are disabled in the php.ini file
+     * @param  \PHPZlc\Upload\Storage\Base              $storage        The method with which to store file
+     * @throws \PHPZlc\Upload\Exception\UploadException If file uploads are disabled in the php.ini file
      * @throws \InvalidArgumentException         If $_FILES key does not exist
      */
-    public function __construct($key, \App\Service\Upload\Storage\Base $storage)
+    public function __construct($key, \PHPZlc\Upload\Storage\Base $storage)
     {
         if (!isset($_FILES[$key])) {
             throw new \InvalidArgumentException("Cannot find uploaded file identified by key: $key");
@@ -162,7 +162,7 @@ class File extends \SplFileInfo
     /**
      * Set name (without extension)
      * @param  string           $name
-     * @return \App\Service\Upload\File     Self
+     * @return \PHPZlc\Upload\File     Self
      */
     public function setName($name)
     {
@@ -243,7 +243,7 @@ class File extends \SplFileInfo
 
     /**
      * Add file validations
-     * @param \App\Service\Upload\Validation\Base|array[\App\Service\Upload\Validation\Base] $validations
+     * @param \PHPZlc\Upload\Validation\Base|array[\PHPZlc\Upload\Validation\Base] $validations
      */
     public function addValidations($validations)
     {
@@ -251,7 +251,7 @@ class File extends \SplFileInfo
             $validations = array($validations);
         }
         foreach ($validations as $validation) {
-            if ($validation instanceof \App\Service\Upload\Validation\Base) {
+            if ($validation instanceof \PHPZlc\Upload\Validation\Base) {
                 $this->validations[] = $validation;
             }
         }
@@ -259,7 +259,7 @@ class File extends \SplFileInfo
 
     /**
      * Get file validations
-     * @return array[\App\Service\Upload\Validation\Base]
+     * @return array[\PHPZlc\Upload\Validation\Base]
      */
     public function getValidations()
     {
@@ -304,7 +304,7 @@ class File extends \SplFileInfo
     /**
      * Add file validation error
      * @param  string
-     * @return \App\Service\Upload\File Self
+     * @return \PHPZlc\Upload\File Self
      */
     public function addError($error)
     {
@@ -321,12 +321,12 @@ class File extends \SplFileInfo
      * Upload file (delegated to storage object)
      * @param  string $newName Give the file it a new name
      * @return bool
-     * @throws \App\Service\Upload\Exception\UploadException If file does not validate
+     * @throws \PHPZlc\Upload\Exception\UploadException If file does not validate
      */
     public function upload($newName = null)
     {
         if ($this->validate() === false) {
-            throw new \App\Service\Upload\Exception\UploadException('File validation failed');
+            throw new \PHPZlc\Upload\Exception\UploadException('File validation failed');
         }
 
         // Update the name, leaving out the extension

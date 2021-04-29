@@ -1,5 +1,8 @@
 ## Upload
 
 上传组件
-composer require phpzlc/upload
+
+## 使用文档
+
+[使用文档](https://phpzlc.github.io/doc/module/upload)
 

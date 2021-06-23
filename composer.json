@@ -1,7 +1,7 @@
 {
     "name": "phpzlc/upload",
     "description": "上传文件组件",
-    "homepage": "https://phpzlc.github.io/",
+    "homepage": "https://phpzlc.com/",
     "license": "MIT",
     "type": "library",
     "keywords": [

@@ -4,5 +4,5 @@
 
 ## 使用文档
 
-[使用文档](https://phpzlc.github.io/doc/module/upload)
+[使用文档](https://phpzlc.com/doc/module/upload)
 
